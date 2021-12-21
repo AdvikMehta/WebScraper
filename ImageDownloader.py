@@ -61,7 +61,10 @@ def downloadImages(wd, delay, max, searchField="imgs"):
     c = 1
     success = 0
     pathName = "imgs/" + searchField + "/"
-    mkdir(pathName)
+    try:
+        mkdir(pathName)
+    except FileExistsError:
+        pass
 
     for url in urls:
         fileName = "img" + str(c) + ".jpg"
